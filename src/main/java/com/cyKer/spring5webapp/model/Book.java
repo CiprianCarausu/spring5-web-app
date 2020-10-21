@@ -1,6 +1,7 @@
 package com.cyKer.spring5webapp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -17,12 +18,11 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
-    public Book(String title, String isBn, Set<Author> authors) {
+    public Book(String title, String isBn) {
         this.title = title;
         this.isBn = isBn;
-        this.authors = authors;
     }
 
     public Book() {
