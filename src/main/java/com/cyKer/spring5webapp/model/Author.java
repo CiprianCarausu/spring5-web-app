@@ -13,14 +13,14 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String findName;
+    private String firstName;
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
-    public Author(String findName, String lastName) {
-        this.findName = findName;
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
@@ -35,12 +35,12 @@ public class Author {
         this.id = id;
     }
 
-    public String getFindName() {
-        return findName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFindName(String findName) {
-        this.findName = findName;
+    public void setFindName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -63,7 +63,7 @@ public class Author {
     public String toString() {
         return "Author{" +
                 "id=" + id +
-                ", findName='" + findName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
